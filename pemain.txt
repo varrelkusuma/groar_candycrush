@@ -1,0 +1,11 @@
+Bob 120
+caca 110
+athur 100
+desi 100
+Zed 80
+bobby 80
+Athur 70
+desi 70
+caca 70
+Athur 60
+Bob 50
