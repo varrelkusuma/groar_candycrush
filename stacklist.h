@@ -1,7 +1,8 @@
-#ifndef STACK_LIST_H
-#define STACK_LIST_H
+#ifndef STACK_POINT_H
+#define STACK_POINT_H
 #include <stdio.h>
 #include <stdlib.h>
+#include "Point.h"
 
 /* MODUL STACK */
 /* Deklarasi stack yang diimplementasi dengan list linier dengan representasi fisik pointer */
@@ -12,16 +13,10 @@
 
 #define Nil NULL
 
-/*  Definisi Type Stack  */
-typedef struct{
-	int x;
-	int y;
-}coordinate;
 
-typedef coordinate infotype;
 typedef struct tElmtStack * address;
 typedef struct tElmtStack {
-	infotype Info;
+	Point Info;
 	address Next;
 } ElmtStack;
 typedef struct {
@@ -51,7 +46,7 @@ void CreateEmpty (Stack *S);
 // Ciri stack kosong : TOP bernilai Nil 
 
 // Prototype manajemen memori
-void Alokasi (address *P, infotype X);
+void Alokasi (address *P, Point X);
 // I.S. P Sembarang, X terdefinisi 
 // F.S. Alamat P dialokasi, jika berhasil maka Info(P) = X dan Next(P) = Nil 
 // P = Nil jika alokasi gagal 
@@ -64,23 +59,23 @@ bool IsEmpty (Stack S);
 // Mengirim true jika Stack kosong
 
 // Operator Dasar Stack
-void Push (Stack *S, infotype X);
+void Push (Stack *S, Point X);
 // Menambahkan X sebagai elemen Stack S. 
 // I.S. S mungkin kosong
 // F.S. X menjadi TOP yang baru, jika alokasi elemen baru berhasil. 
 // Jika alokasi gagal, S tetap. 
-void Pop (Stack *S, infotype *X);
+void Pop (Stack *S, Point *X);
 // Menghapus X dari Stack S. 
 // I.S. S tidak kosong 
 // F.S. X adalah nilai elemen TOP yang lama, elemen top yang lama didealokasi, 
 // TOP(S) = Next(TOP(S)).
 
-address Search (Stack S, infotype X);
+address Search (Stack S, Point X);
 /* Mencari apakah ada elemen list dengan Info(P)= X */
 /* Jika ada, mengirimkan address elemen tersebut. */
 /* Jika tidak ada, mengirimkan Nil */
 
-void PushUnique (Stack *S, infotype X);
+void PushUnique (Stack *S, Point X);
 // Menambahkan X sebagai elemen Stack S jika unik. 
 // I.S. S mungkin kosong
 // F.S. X menjadi TOP yang baru, jika alokasi elemen baru berhasil. 
